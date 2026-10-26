@@ -1,0 +1,11 @@
+node_modules/
+dist/
+qa/runs/
+qa/findings/
+qa/annotations/
+opencode.json
+*.tgz
+*.log
+.DS_Store
+playwright-report/
+test-results/

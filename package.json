@@ -1,0 +1,60 @@
+{
+  "name": "qa-mcp",
+  "version": "0.4.1",
+  "description": "Non-agentic MCP server that renders an app, acts on it, and returns measurements. The agent judges.",
+  "license": "MIT",
+  "author": "contraliz",
+  "type": "module",
+  "engines": {
+    "node": ">=20"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/contraliz/qa-mcp.git"
+  },
+  "homepage": "https://github.com/contraliz/qa-mcp",
+  "bin": {
+    "qa-mcp": "dist/cli.js"
+  },
+  "main": "dist/server.js",
+  "files": [
+    "dist",
+    "electron",
+    "README.md",
+    "LICENSE"
+  ],
+  "keywords": [
+    "mcp",
+    "playwright",
+    "visual-testing",
+    "e2e",
+    "agent-tools"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "serve": "node dist/server.js",
+    "qa": "node dist/cli.js",
+    "test": "npm run build && node --test test/mvp.test.js test/guards.test.js",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "prepack": "npm run build",
+    "prepublishOnly": "npm test",
+    "pack:check": "npm pack --dry-run"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.32.2",
+    "pixelmatch": "^6.0.0",
+    "playwright": "1.64.1",
+    "pngjs": "^7.0.0",
+    "zod": "^3.25.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.15.0",
+    "@types/pixelmatch": "^5.2.6",
+    "@types/pngjs": "^6.0.5",
+    "electron": "^45.0.0",
+    "typescript": "^5.7.0"
+  }
+}
